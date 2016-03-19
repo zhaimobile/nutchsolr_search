@@ -1,0 +1,4 @@
+apache_nutch_1_11/crawl/*
+apache_nutch_1_11/logs
+apache_nutch_1_11/TestCrawl/crawldb/
+apache_nutch_1_11/TestCrawl/*

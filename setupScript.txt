@@ -1,0 +1,27 @@
+## this line is add JAVA_HOME to running bash
+>export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home
+
+## Inject urls to crawldb, (the urls is folder) Option 2. Bootstrapping from an initial seed list.
+> bin/nutch inject crawl/crawldb urls
+
+Injector: starting at 2016-03-18 15:26:51
+Injector: crawlDb: crawl/crawldb
+Injector: urlDir: urls
+Injector: Converting injected urls to crawl db entries.
+Injector: overwrite: false
+Injector: update: false
+Injector: Total number of urls rejected by filters: 0
+Injector: Total number of urls after normalization: 1
+Injector: Total new urls injected: 1
+Injector: finished at 2016-03-18 15:26:53, elapsed: 00:00:01
+
+
+according to this we have to give the core name of the solr
+http://stackoverflow.com/questions/19551949/exception-in-thread-main-java-io-ioexception-job-failed-on-nutch-1-7
+
+Step-by-Step: Indexing into Apache Solr
+
+ bin/nutch solrindex http://localhost:8983/solr/gettingstarted_shard1_replica2 crawl/crawldb/ -linkdb crawl/linkdb/ crawl/segments/20160318153713/ -filter -normalize
+
+##script
+bin/crawl -i -D solr.server.url=http://localhost:8983/solr/gettingstarted_shard1_replica2 urls/ TestCrawl/  2
